@@ -1,0 +1,9 @@
+import sys
+
+def SumarMayorValor():
+    MayorValor = sys.float_info.max
+    MayorValor += MayorValor
+
+    return MayorValor
+
+SumarMayorValor()
