@@ -1,0 +1,90 @@
+Examen - Recursion (David Santiago Giraldo Gallo - Santiago Cano Ocampo)
+
+Ejercicio 1
+Caso 1:
+
+Procedimiento generar_binarios_suma_igual(n, numero_actual, suma_izquierda, suma_derecha)
+    Si longitud(numero_actual) es igual a n Entonces
+        Si suma_izquierda es igual a suma_derecha Entonces
+            Imprimir numero_actual
+        Fin Si
+        Retornar
+    Fin Si
+    
+    generar_binarios_suma_igual(n, concatenar(numero_actual, "0"), suma_izquierda, suma_derecha + 1)
+    generar_binarios_suma_igual(n, concatenar(numero_actual, "1"), suma_izquierda + 1, suma_derecha)
+Fin Procedimiento
+
+Procedimiento generar_binarios_iguales_caso1(n)
+    generar_binarios_suma_igual(n, "", 0, 0)
+Fin Procedimiento
+
+n <- 4
+generar_binarios_iguales_caso1(n)
+
+
+Caso 2:
+
+Procedimiento generar_binarios_suma_igual(n, numero_actual, suma_izquierda, suma_derecha)
+    Si longitud(numero_actual) es igual a n Entonces
+        Si suma_izquierda es igual a suma_derecha Entonces
+            Imprimir numero_actual
+        Fin Si
+        Retornar
+    Fin Si
+    
+    generar_binarios_suma_igual(n, concatenar(numero_actual, "0"), suma_izquierda, suma_derecha + 1)
+    generar_binarios_suma_igual(n, concatenar(numero_actual, "1"), suma_izquierda + 1, suma_derecha)
+Fin Procedimiento
+
+Procedimiento generar_binarios_iguales_caso2(n)
+    generar_binarios_suma_igual(n, "0", 0, 0)
+    generar_binarios_suma_igual(n, "1", 1, 0)
+Fin Procedimiento
+
+n <- 5
+generar_binarios_iguales_caso2(n)
+
+
+Ejercicio 2
+Caso 1:
+
+función generar_combinaciones(arr, r, índice, combo):
+    si longitud(combo) == r:
+        imprimir combo
+        retornar
+    
+    para i desde índice hasta longitud(arr) - 1:
+        agregar arr[i] a combo
+        generar_combinaciones(arr, r, i + 1, combo)
+        quitar último elemento de combo
+
+arreglo = [1, 2, 3, 4]
+r = 2
+
+generar_combinaciones(arreglo, r, 0, [])
+
+Ejercicio 3
+Caso 1:
+
+función recorrer_matriz(matriz, fila_actual, columna_actual, N, M):
+    si fila_actual >= N o columna_actual >= M:
+        retornar  
+    sino:
+        elemento_actual = matriz[fila_actual][columna_actual]
+        imprimir elemento_actual  
+        
+        si columna_actual + 1 < M:
+            recorrer_matriz(matriz, fila_actual, columna_actual + 1, N, M)  
+        sino si fila_actual + 1 < N:
+            recorrer_matriz(matriz, fila_actual + 1, 0, N, M)  
+
+N = 3
+M = 3 
+matriz = [[1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]]
+
+recorrer_matriz(matriz, 0, 0, N, M)  
+
+
