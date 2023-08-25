@@ -1,0 +1,103 @@
+Taller Recursion - David Santiago Giraldo Gallo
+
+Ejercicio 1
+°Cree una función recursiva de cola que reciba un entero y retorne cuántos dígitos de este número son múltiplos de 2 y de 4. Ignore el cero.
+
+función contarMultiplosDe2Y4(numero):
+    si numero == 0:
+        retornar 0
+    sino:
+        ultimoDigito = numero % 10
+        si ultimoDigito != 0 y (ultimoDigito % 2 == 0 y ultimoDigito % 4 == 0):
+            retornar 1 + contarMultiplosDe2Y4(numero // 10)
+        sino:
+            retornar contarMultiplosDe2Y4(numero // 10)
+
+resultado = contarMultiplosDe2Y4(34523)
+imprimir("Cantidad de dígitos múltiplos de 2 o 4:", resultado)
+
+
+Ejercicio 2
+°Cree una función no recursiva de cola que invierta sólo la segunda mitad de un string.
+
+función invertirSegundaMitad(cadena):
+    tamaño = longitud(cadena)
+    puntoMedio = tamaño // 2
+
+    primeraMitad = subcadena(cadena, 0, hasta puntoMedio - 1)
+    segundaMitad = subcadena(cadena, puntoMedio, hasta tamaño)
+
+    segundaMitadInvertida = invertirCadena(segundaMitad)
+
+    resultado = concatenar(primeraMitad, segundaMitadInvertida)
+    retornar resultado
+
+cadena_original = "Hola"
+resultado = invertirSegundaMitad(cadena_original)
+imprimir("Cadena con segunda mitad invertida:", resultado)
+
+
+Ejercicio 3
+°Cree una funcion recursiva que calcule las sumatoria de todos los numeros impares de una matriz cuadrada.
+
+función sumaNumerosImpares(matriz, fila, columna, tamaño, sumaParcial):
+    si fila >= tamaño:
+        retornar sumaParcial
+    sino si columna >= tamaño:
+        retornar sumaNumerosImpares(matriz, fila + 1, 0, tamaño, sumaParcial)
+    sino:
+        númeroActual = matriz[fila][columna]
+        si númeroActual es impar:
+            nuevaSuma = sumaParcial + númeroActual
+            retornar sumaNumerosImpares(matriz, fila, columna + 1, tamaño, nuevaSuma)
+        sino:
+            retornar sumaNumerosImpares(matriz, fila, columna + 1, tamaño, sumaParcial)
+
+matriz = [
+    [1, 2],
+    [3, 4]
+]
+
+tamaño = longitud(matriz)
+resultado = sumaNumerosImpares(matriz, 0, 0, tamaño, 0)
+imprimir("Suma de números impares en la matriz:", resultado)
+
+
+Ejercicio 4
+°Cree una función recursiva que reciba una lista "l", un elemento "e" y un índice "i" y que retorne si el elemento "e" está en la lista "l" en la posición "i".
+
+función verificarElementoEnPosición(lst, elemento, posición, índice):
+    si índice >= longitud(lst):
+        retornar Falso
+    sino si índice == posición:
+        retornar lst[índice] == elemento
+    sino:
+        retornar verificarElementoEnPosición(lst, elemento, posición, índice + 1)
+
+arreglo = [1, 2, 3]
+elemento = 2
+posición = 0
+
+resultado = verificarElementoEnPosición(arreglo, elemento, posición, 0)
+imprimir("¿El elemento está en la posición especificada?", resultado)
+
+
+Ejercicio 5
+°Cree una funcion recursiva que reciba un string alfanumerico y que extraiga los digitos del string y retorne el numero formado por todos los digitos.
+
+función extraerYFormarNumero(cadena, posición, númeroActual):
+    si posición >= longitud(cadena):
+        retornar númeroActual
+    sino:
+        caracterActual = obtenerCaracter(cadena, posición)
+        si esDígito(caracterActual):
+            nuevoNúmero = númeroActual * 10 + convertirANúmero(caracterActual)
+            retornar extraerYFormarNumero(cadena, posición + 1, nuevoNúmero)
+        sino:
+            retornar extraerYFormarNumero(cadena, posición + 1, númeroActual)
+
+cadena = "dwbcuy37w457t457twgjdfbuey54w8"
+resultado = extraerYFormarNumero(cadena, 0, 0)
+imprimir("Número formado por los dígitos:", resultado)
+
+
