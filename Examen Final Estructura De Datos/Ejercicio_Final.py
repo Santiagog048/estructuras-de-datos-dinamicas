@@ -19,7 +19,6 @@ def in_order_traversal(tree, callback):
             callback(current.value)
             current = current.right
 
-# Ejemplo de uso
 def someCallback(value):
     print(f"callback({value})")
 
